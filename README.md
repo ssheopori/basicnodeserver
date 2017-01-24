@@ -1,4 +1,4 @@
-# basicnodeserver
+# A Basic Node Server
 An Express based NodeJS Server with mySQL support and lodash.
 
 Will demonstrate putting code into Modules.
