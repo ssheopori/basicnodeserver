@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Siddharth Sheopori",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "lodash": "^4.17.4",
+    "mysql": "^2.13.0"
+  }
 }
