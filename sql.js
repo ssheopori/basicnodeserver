@@ -7,7 +7,7 @@ var secrets = require('./secrets.json');
 
 
 
-var connectionString = mysql.createConnection({
+var connection = mysql.createConnection({
     host:       secrets.host,
     port:       secrets.port,
     user:       secrets.user,
@@ -15,17 +15,29 @@ var connectionString = mysql.createConnection({
     database:   secrets.database
 });
 
-function connectToDB(){
-    try{
-        connectionString.connect();
-    }catch(error){
-        util.debug(error);
-    }
+var returnData = {};
+
+
+function getData(){    
+
+    connection.query('select * from tbl1', function(err, rowData, fields) {
+        if (err) throw err;             
+        
+        returnData = rowData;
+        util.log('SQLJS',returnData);
+               
+    });
+
+    connection.end();
+
+    return returnData;
+
 }
 
 
-module.exports = {
-    connect: connectToDB
+
+module.exports = {    
+    getData: getData
 }
 
 

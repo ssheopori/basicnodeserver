@@ -7,7 +7,38 @@ var util    = require('util');
 var sql     = require('./sql.js');
 
 
-util.log("Connecting to DB...");
-sql.connect();
+//variables
+var retVals = {};
+
+
+
+
+function init(){
+
+    getData(function(data){
+        retVals = data;
+        util.log('appjs', retVals);
+    });
+    
+}
+
+
+function getData(callback){
+    var sqlData = {};
+    sqlData = sql.getData();    
+    callback(sqlData);
+}
+
+
+//begin execution
+init();
+
+
+
+
+
+
+
+
 
 
